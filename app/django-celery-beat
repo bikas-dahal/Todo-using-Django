@@ -1,0 +1,17 @@
+from django_celery_beat.models import PeriodicTask, CrontabSchedule
+import json
+
+schedule, created = CrontabSchedule.objects.get_or_create(
+    minute='0',
+    hour='9',
+    day_of_week='*',
+    day_of_month='*',
+    month_of_year='*',
+)
+
+task = PeriodicTask.objects.create(
+    crontab=schedule,
+    name='Send task reminder every morning at 9am',
+    task='todo_app.tasks.send_task_reminder',
+    args=json.dumps([task_id])
+)

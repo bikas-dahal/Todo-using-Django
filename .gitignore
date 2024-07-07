@@ -2,3 +2,5 @@ django-env/
 .env
 node_modules/
 uwsgi_app.sock
+staticfiles/vendors
+

@@ -37,6 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    'django.contrib.sites',
+    "allauth_ui",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
+    "widget_tweaks",
+    "slippers",
+    'allauth.socialaccount.providers.google',  # Example social provider
+    'django_celery_beat',
+    'django_celery_results',
+    
+    
     'compressor',
     'app',
 ]
@@ -46,9 +59,12 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    # 'allauth.account.auth_backends.AuthenticationBackend',
+    'allauth.account.middleware.AccountMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.contrib.auth.backends.ModelBackend',
 ]
 
 ROOT_URLCONF = 'todo.urls'
@@ -72,6 +88,21 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'todo.wsgi.application'
+
+SITE_ID = 1
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+
+
+# Email configuration for task reminders
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.example.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your_email@example.com'
+EMAIL_HOST_PASSWORD = 'your_password'
 
 
 # Database
