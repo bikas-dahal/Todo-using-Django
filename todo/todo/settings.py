@@ -46,19 +46,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'django.contrib.sites',
-    "allauth_ui",
+    # "allauth_ui",
     "allauth",
     "allauth.account",
-    "allauth.socialaccount",
-    "allauth.socialaccount.providers.github",
-    "widget_tweaks",
-    "slippers",
-    'allauth.socialaccount.providers.google',  # Example social provider
-    'django_celery_beat',
-    'django_celery_results',
+    # "allauth.socialaccount",
+    # "allauth.socialaccount.providers.github",
+    # "widget_tweaks",
+    # "slippers",
+    # 'allauth.socialaccount.providers.google',  # Example social provider
+    # 'django_celery_beat',
+    # 'django_celery_results',
     
     
-    'compressor',
+    # 'compressor',
     'app',
 ]
 
