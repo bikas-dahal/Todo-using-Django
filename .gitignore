@@ -4,3 +4,5 @@ node_modules/
 uwsgi_app.sock
 vendors/
 local-cdn/
+docker-compose.yaml
+config/
