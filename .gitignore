@@ -3,4 +3,4 @@ django-env/
 node_modules/
 uwsgi_app.sock
 staticfiles/vendors
-
+local-cdn/

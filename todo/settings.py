@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,8 +23,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'django-insecure-ji^tz2e^1(qbrkqrlnxxr#wtq8g^0lde6^f%pveu*%k__av^40'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.railway.app'
+]
+
+if DEBUG:
+    ALLOWED_HOSTS += ['localhost', '127.0.0.1']
+
+
 
 
 # Application definition
@@ -108,7 +116,17 @@ EMAIL_HOST_PASSWORD = 'your_password'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+DATABASES = {
 
+    'default': {
+
+        'ENGINE': 'django.db.backends.sqlite3',
+
+        'NAME': BASE_DIR / 'db.sqlite3',
+
+    }
+
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -145,8 +163,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_BASE_DIR = BASE_DIR / 'staticfiles'
+STATICFILES_VENDOR_DIR = STATICFILES_BASE_DIR / 'vendors'
 
+
+# sources
+STATICFILES_DIRS = [
+    STATICFILES_BASE_DIR
+]
+
+# output  local-cdn 
+
+STATIC_ROOT = BASE_DIR / 'local-cdn'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -158,5 +186,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 COMPRESS_ROOT = BASE_DIR / 'static'
 
 COMPRESS_ENABLED = True
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
-STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
+# STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
