@@ -131,7 +131,7 @@ DATABASES = {
     }
 }
 
-DB_URL = config('DB_URL')
+DB_URL = config('DATABASE_URL')
 import dj_database_url
 
 if DB_URL is not None:
