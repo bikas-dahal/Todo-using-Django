@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 print('DEBUG:', DEBUG) 
 
 ALLOWED_HOSTS = [
@@ -40,22 +40,25 @@ if DEBUG:
 # Application definition
 
 INSTALLED_APPS = [
+    
     'django.contrib.admin',
+    "allauth_ui",
+    "allauth",
+   
+    "allauth.account",
+    "allauth.socialaccount",
+    
+    "allauth.socialaccount.providers.github",
+    'allauth.socialaccount.providers.google',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
     'django.contrib.sites',
-    "allauth_ui",
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
-    "allauth.socialaccount.providers.github",
     "widget_tweaks",
     "slippers",
-    'allauth.socialaccount.providers.google',  # Example social provider
+      # Example social provider
     # 'django_celery_beat',
     # 'django_celery_results',
     
@@ -209,6 +212,9 @@ SOCIALACCOUNT_PROVIDERS = {
             'profile',
             'email',
         ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
     }
 }
 
