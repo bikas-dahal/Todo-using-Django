@@ -131,19 +131,19 @@ DATABASES = {
     }
 }
 
-DATABASE_URL = config('DATABASE_URL')
-import dj_database_url
+# DATABASE_URL = config('DATABASE_URL')
+# import dj_database_url
 
-if DATABASE_URL is not None:
+# if DATABASE_URL is not None:
     
-    DATABASES = {
-       'default': dj_database_url.config(
-        default=DATABASE_URL,
-        conn_health_checks=True,
-        conn_max_age=600,
-        # ssl_require=True
-    )
-    }
+#     DATABASES = {
+#        'default': dj_database_url.config(
+#         default=DATABASE_URL,
+#         conn_health_checks=True,
+#         conn_max_age=600,
+#         # ssl_require=True
+#     )
+#     }
 
 
 # Password validation
