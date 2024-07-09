@@ -7,3 +7,4 @@ dj-database-url
 python-decouple==3.8
 psycopg[binary]
 gunicorn
+requests

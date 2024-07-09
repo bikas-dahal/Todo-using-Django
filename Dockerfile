@@ -43,10 +43,17 @@ COPY ./todo /code
 # Install the Python project requirements
 RUN pip install -r /tmp/requirements.txt
 
+ARG DJANGO_SECRET
+ENV DJANGO_SECRET=${DJANGO_SECRET}
+
+ARG DB_URL
+ENV DB_URL=${DB_URL}
+
 # database isn't available during build
 # run any other commands that do not need the database
 # such as:
-# RUN python manage.py collectstatic --noinput
+RUN python manange.py vendor_pull
+RUN python manage.py collectstatic --noinput
 
 # set the Django default project name
 ARG PROJ_NAME="todo"
