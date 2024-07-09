@@ -31,6 +31,10 @@ ALLOWED_HOSTS = [
     '.railway.app'
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://todo-using-django-production.up.railway.app'
+]
+
 if DEBUG:
     ALLOWED_HOSTS += ['localhost', '127.0.0.1']
 
