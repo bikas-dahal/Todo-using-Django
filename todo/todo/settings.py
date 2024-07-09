@@ -211,15 +211,9 @@ SOCIALACCOUNT_PROVIDERS = {
     #     'VERIFIED_EMAIL': True
     # },
     'google': {
-        'VERIFIED_EMAIL': True,
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
+        'VERIFIED_EMAIL': True
         }
-    }
+    
 }
 
 
