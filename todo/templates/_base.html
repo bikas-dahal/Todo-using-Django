@@ -1,4 +1,4 @@
-{% load compress %}
+{% comment %} {% load compress %} {% endcomment %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -9,10 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django + Tailwind CSS + Flowbite</title>
-
-    {% compress css %}
-    <link rel="stylesheet" href="{% static 'src/output.css' %}">
-    {% endcompress %}
+    {% include 'base/css.html' %}
 
 </head>
 
@@ -22,6 +19,10 @@
         {% block content %}
         {% endblock content %}
     </div>
+    {% comment %} {% include 'includes/footer.html' %} {% endcomment %}
+
+    {% include 'base/js.html' %}
+
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 </body>
 
