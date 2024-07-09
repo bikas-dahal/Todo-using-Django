@@ -131,14 +131,14 @@ DATABASES = {
     }
 }
 
-DB_URL = config('DATABASE_URL')
+DATABASE_URL = config('DATABASE_URL')
 import dj_database_url
 
-if DB_URL is not None:
+if DATABASE_URL is not None:
     
     DATABASES = {
        'default': dj_database_url.config(
-        default=DB_URL,
+        default=DATABASE_URL,
         conn_health_checks=True,
         conn_max_age=600,
         # ssl_require=True
