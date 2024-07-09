@@ -3,9 +3,13 @@ asgiref==3.8.1
 
 Django==5.0.6
 django-allauth==0.63.3
+django-allauth[socialaccount]
+django-allauth-ui
+django-widget-tweaks
 dj-database-url
 python-decouple==3.8
 psycopg[binary]
 gunicorn
 requests
 pika
+whitenoise

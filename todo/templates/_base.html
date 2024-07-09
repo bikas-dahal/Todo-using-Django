@@ -15,6 +15,7 @@
 
 <body class="bg-green-50">
     {% include 'includes/header.html' %}
+    {% include 'base/messages.html' with messages=messages%}
     <div class="container mx-auto mt-4">
         {% block content %}
         {% endblock content %}
