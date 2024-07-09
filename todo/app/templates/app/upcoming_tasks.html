@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Task List{% endblock %}
+{% block content %}
+    <h2 class="text-2xl font-bold mb-4">Task List</h2>
+    <table class="min-w-full bg-white shadow-md rounded my-6">
+        <thead>
+            <tr>
+                <th class="py-2 px-4 border-b">Title</th>
+                <th class="py-2 px-4 border-b">Description</th>
+                <th class="py-2 px-4 border-b">Due Date</th>
+                <th class="py-2 px-4 border-b">Priority</th>
+                <th class="py-2 px-4 border-b">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+                <tr>
+                    <td class="py-2 px-4 border-b">{{ task.title }}</td>
+                    <td class="py-2 px-4 border-b">{{ task.description }}</td>
+                    <td class="py-2 px-4 border-b">{{ task.due_date }}</td>
+                    <td class="py-2 px-4 border-b">{{ task.get_priority_display }}</td>
+                    <td class="py-2 px-4 border-b">
+                        <a href="{% url 'task_detail' task.id %}" class="text-blue-600 hover:text-blue-800">View</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

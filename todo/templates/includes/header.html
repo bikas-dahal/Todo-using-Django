@@ -1,49 +1,47 @@
+<!-- includes/header.html -->
 <div id="sidebar" class="h-screen bg-gray-800 p-4 w-64 hidden md:block">
     <div class="text-white">
         <div class="flex items-center justify-between mb-4">
-            <a class="text-white text-lg" href="#">Todo App</a>
+            <a class="text-white text-lg" href="{% url 'task_list' %}">Todo App</a>
             <button id="theme-switch" class="bg-gray-700 p-2 rounded">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v3m0 12v3m9-9h-3M6 12H3m14.828-6.828l-2.121 2.121M7.757 16.242l-2.121 2.121M16.242 16.243l-2.121-2.122M7.757 7.757L5.636 5.636"></path></svg>
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3v3m0 12v3m9-9h-3M6 12H3m14.828-6.828l-2.121 2.121M7.757 16.242l-2.121 2.121M16.242 16.243l-2.121-2.122M7.757 7.757L5.636 5.636"></path>
+                </svg>
             </button>
         </div>
         <ul>
             <li class="mb-4">
-                <a href="#" class="flex items-center text-gray-400 hover:text-white">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4v16m8-8H4"></path></svg>
+                <a href="{% url 'add_task' %}" class="flex items-center text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4v16m8-8H4"></path>
+                    </svg>
                     Add Task
                 </a>
             </li>
             <li class="mb-4">
-                <a href="#" class="flex items-center text-gray-400 hover:text-white">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5v14"></path></svg>
+                <a href="{% url 'today_tasks' %}" class="flex items-center text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12h14M12 5v14"></path>
+                    </svg>
                     Today
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center text-gray-400 hover:text-white">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5v14"></path></svg>
+                <a href="{% url 'upcoming_tasks' %}" class="flex items-center text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12h14M12 5v14"></path>
+                    </svg>
                     Upcoming
                 </a>
             </li>
         </ul>
-        {% if user.is_authenticated %}
         <div class="absolute bottom-4">
-            <a href="" class="flex items-center text-gray-400 hover:text-white">
-                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
-                {{ user.username }}
-            </a>
-            <a href="{% url 'account_logout' %}" class="flex items-center text-gray-400 hover:text-white">
-                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
-                Logout
-            </a>
-        </div>
-        {% else %}
-        <div class="absolute bottom-4">
-            <a href="{% url 'account_login' %}" class="flex items-center text-gray-400 hover:text-white">
-                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
+            <a href="{% url 'profile' %}" class="flex items-center text-gray-400 hover:text-white">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                </svg>
                 Profile
             </a>
         </div>
-        {% endif %}
     </div>
 </div>

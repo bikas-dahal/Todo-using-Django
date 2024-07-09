@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Add Team{% endblock %}
+{% block content %}
+    <h2 class="text-2xl font-bold mb-4">Add Team</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="name" class="block text-gray-700">Team Name</label>
+            <input type="text" name="name" id="name" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+            <label for="members" class="block text-gray-700">Add Members</label>
+            <input type="text" name="members" id="members" class="w-full p-2 border rounded" placeholder="Enter member emails separated by commas" required>
+        </div>
+        <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded">Create Team</button>
+    </form>
+{% endblock %}

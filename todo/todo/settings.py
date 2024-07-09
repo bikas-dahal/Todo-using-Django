@@ -62,6 +62,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     "widget_tweaks",
     "slippers",
+    'tempus_dominus',
+    'bootstrap_datepicker_plus',
       # Example social provider
     # 'django_celery_beat',
     # 'django_celery_results',

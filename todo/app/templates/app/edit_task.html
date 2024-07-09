@@ -1,0 +1,76 @@
+<!-- edit.html -->
+
+{% extends 'base.html' %}
+{% block title %}Edit Task{% endblock %}
+{% block content %}
+    <div class="container">
+        <h2>Edit Task</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_title">Title</label>
+                {{ form.title }}
+            </div>
+            <div class="form-group">
+                <label for="id_description">Description</label>
+                {{ form.description }}
+            </div>
+            <div class="form-group">
+                <label for="id_due_date">Due Date</label>
+                {{ form.due_date }}
+            </div>
+            <div class="form-group">
+                <label for="id_priority">Priority</label>
+                {{ form.priority }}
+            </div>
+            <div class="form-group">
+                <label for="id_member">Member</label>
+                {{ form.member }}
+            </div>
+            <div class="form-group">
+                <label for="id_organization">Organization</label>
+                {{ form.organization }}
+            </div>
+            <button type="submit" class="btn btn-primary">Update Task</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Include Bootstrap Datepicker JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Initialize Datepicker -->
+    <script>
+        $(document).ready(function() {
+            $('#id_due_date').datepicker({
+                format: 'yyyy-mm-dd hh:ii:ss',
+                autoclose: true,
+                todayBtn: true,
+                todayHighlight: true,
+                icons: {
+                    time: 'fa fa-clock-o',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-chevron-up',
+                    down: 'fa fa-chevron-down',
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-crosshairs',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-times'
+                }
+            });
+        });
+    </script>
+    {{form.media}}
+{% endblock %}

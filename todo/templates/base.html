@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Todo App{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
+    
+
+    {% block extra_css %}{% endblock %}
+    {% include 'base/css.html' %}
+
+</head>
+<body class="flex">
+    <!-- Include Sidebar -->
+    {% include 'includes/header.html' %}
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6">
+        <button id="menu-button" class="block md:hidden p-2 bg-gray-800 text-white rounded">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+        {% block content %}{% endblock %}
+    </div>
+
+    <script>
+        document.getElementById('menu-button').addEventListener('click', function () {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+        });
+        document.getElementById('theme-switch').addEventListener('click', function () {
+            document.documentElement.classList.toggle('dark');
+        });
+    </script>
+    {% include 'base/js.html' %}
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -20,8 +20,8 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     due_date = models.DateTimeField()
     priority = models.IntegerField(choices=[(1, 'Low'), (2, 'Medium'), (3, 'High')])
-    member = models.ForeignKey(Member, on_delete=models.CASCADE)
-    organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
+    member = models.ForeignKey(Member, on_delete=models.CASCADE, null=True, blank=True)
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.title
