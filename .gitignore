@@ -1,6 +1,7 @@
 # ignore vendor static files
-todo/staticfiles/vendors/
 
+
+todo\staticfiles\vendors
 
 uwsgi_app.sock
 
